@@ -1,5 +1,4 @@
 import '../../pages/Home/index.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function ItemMenu(props) {
     return (
