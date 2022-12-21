@@ -5,6 +5,7 @@ import ItemMenu from '../../components/itemMenu/ItemMenu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileClipboard, faGauge, faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import MiniDashboard from '../../components/miniDashboard/MiniDashboard';
+import MiniDashboardInfo from '../../components/miniDashboardInfo/MiniDashboardInfo';
 
 function Home() {
     return (
@@ -27,6 +28,7 @@ function Home() {
                         <ItemMenu icon={<FontAwesomeIcon icon={faGauge} />} name={'Dashboard'} description={'Visão gráfica dos dados'} />
                         <ItemMenu icon={<FontAwesomeIcon icon={faUserPlus} />} name={'Usuário'} description={'Cadastro de novos usuários'} />
                         <ItemMenu icon={<FontAwesomeIcon icon={faFileClipboard} />} name={'Relatório'} description={'Gerar relatórios'} />
+                        <ItemMenu icon={<FontAwesomeIcon icon={faFileClipboard} />} name={'Doações'} description={'Manutenção de doações'} />
                     </div>
                     <p class="text-sm text-center text-gray-600">v2.0.0.3 | &copy; 2022 Pantazi Soft</p>
                 </div>
@@ -42,24 +44,30 @@ function Home() {
                     <div id="last-incomes">
                         <h1 class="font-bold py-4 uppercase">Last 24h incomes</h1>
                         <div id="stats" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                            <div class="bg-black/60 to-white/5 rounded-lg">
-                                <div class="flex flex-row items-center">
-                                    <div class="text-3xl p-4">💰</div>
-                                    <div class="p-2">
-                                        <p class="text-xl font-bold">28$</p>
-                                        <p class="text-gray-500 font-medium">Tony Ankel</p>
-                                        <p class="text-gray-500 text-sm">22 Nov 2022</p>
-                                    </div>
-                                </div>
-                                <div class="border-t border-white/5 p-4">
-                                    <a href="#" class="inline-flex space-x-2 items-center text-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
-                                        </svg>
-                                        <span>Info</span>
-                                    </a>
-                                </div>
-                            </div>
+                            <MiniDashboardInfo 
+                                icon={<FontAwesomeIcon icon={faFileClipboard} />} 
+                                title={'28$'} 
+                                data={'Regis Olivo'} 
+                                date={'22 Nov 2022'} 
+                            />
+                            <MiniDashboardInfo 
+                                icon={<FontAwesomeIcon icon={faFileClipboard} />} 
+                                title={'28$'} 
+                                data={'Regis Olivo'} 
+                                date={'22 Nov 2022'} 
+                            />
+                            <MiniDashboardInfo 
+                                icon={<FontAwesomeIcon icon={faFileClipboard} />} 
+                                title={'28$'} 
+                                data={'Regis Olivo'} 
+                                date={'22 Nov 2022'} 
+                            />
+                            <MiniDashboardInfo 
+                                icon={<FontAwesomeIcon icon={faFileClipboard} />} 
+                                title={'28$'} 
+                                data={'Regis Olivo'} 
+                                date={'22 Nov 2022'} 
+                            />
                         </div>
                     </div>
                     <div id="last-users">
