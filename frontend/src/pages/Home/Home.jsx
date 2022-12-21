@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileClipboard, faGauge, faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import MiniDashboard from '../../components/miniDashboard/MiniDashboard';
 import MiniDashboardInfo from '../../components/miniDashboardInfo/MiniDashboardInfo';
+import Version from '../../components/version/Version';
 
 function Home() {
     return (
@@ -30,7 +31,7 @@ function Home() {
                         <ItemMenu icon={<FontAwesomeIcon icon={faFileClipboard} />} name={'Relatório'} description={'Gerar relatórios'} />
                         <ItemMenu icon={<FontAwesomeIcon icon={faFileClipboard} />} name={'Doações'} description={'Manutenção de doações'} />
                     </div>
-                    <p class="text-sm text-center text-gray-600">v2.0.0.3 | &copy; 2022 Pantazi Soft</p>
+                    <Version version={'v0.0.0'} author={'Lucas Paris'} />
                 </div>
                 <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
                     <div id="24h">
