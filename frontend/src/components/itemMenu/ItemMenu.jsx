@@ -2,7 +2,7 @@ import '../../pages/Home/index.css';
 
 function ItemMenu(props) {
     return (
-        <a href="#" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
+        <div href="#" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
             <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
                 <div>
                     {props.icon}
@@ -12,7 +12,7 @@ function ItemMenu(props) {
                     <p class="text-slate-400 text-sm hidden md:block">{props.description}</p>
                 </div>
             </div>
-        </a>
+        </div>
     );
 }
 
