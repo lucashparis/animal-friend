@@ -1,4 +1,5 @@
 import Sidebar from '../../components/sidebar/Sidebar';
+import TableUI from '../../components/tableUI/TableUI';
 import '../../pages/Home/index.css';
 
 function User(props) {
@@ -10,6 +11,9 @@ function User(props) {
                     <div id="24h">
                         <h1 class="font-bold py-4 uppercase">Cadastro de Usuário</h1>
                     </div>
+
+                    <TableUI />
+
                 </div>
             </div>
         </div>
