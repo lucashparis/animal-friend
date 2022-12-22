@@ -1,4 +1,4 @@
-import { faFileClipboard, faGauge, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCircle, faCircleDollarToSlot, faFileClipboard, faGauge, faHandsHolding, faHandsHoldingChild, faHandsHoldingCircle, faPaw, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import '../../pages/Home/index.css';
@@ -22,9 +22,9 @@ function Sidebar(props) {
             <hr class="my-2 border-slate-700" />
             <div id="menu" class="flex flex-col space-y-2 my-5">
                 <Link to={'/'}><ItemMenu icon={<FontAwesomeIcon icon={faGauge} />} name={'Dashboards'} description={'Visão gráfica dos dados'} /></Link>
-                <Link to={'/animal'}><ItemMenu icon={<FontAwesomeIcon icon={faFileClipboard} />} name={'Animais'} description={'Manutenção de animais'} /></Link>
+                <Link to={'/animal'}><ItemMenu icon={<FontAwesomeIcon icon={faPaw} />} name={'Animais'} description={'Manutenção de animais'} /></Link>
                 <Link to={'/usuario'}><ItemMenu icon={<FontAwesomeIcon icon={faUserPlus} />} name={'Usuários'} description={'Cadastro de novos usuários'} /></Link>
-                <Link to={'/doacao'}><ItemMenu icon={<FontAwesomeIcon icon={faFileClipboard} />} name={'Doações'} description={'Manutenção de doações'} /></Link>
+                <Link to={'/doacao'}><ItemMenu icon={<FontAwesomeIcon icon={faCircleDollarToSlot} />} name={'Doações'} description={'Manutenção de doações'} /></Link>
                 <Link to={'/relatorio'}><ItemMenu icon={<FontAwesomeIcon icon={faFileClipboard} />} name={'Relatórios'} description={'Gerar relatórios'} /></Link>
             </div>
             <Version version={'V0.0.0'} author={'Lucas Paris'} />

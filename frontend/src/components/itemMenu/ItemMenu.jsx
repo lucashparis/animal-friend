@@ -4,7 +4,7 @@ function ItemMenu(props) {
     return (
         <div href="#" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
             <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
-                <div>
+                <div class="text-2xl">
                     {props.icon}
                 </div>
                 <div>
