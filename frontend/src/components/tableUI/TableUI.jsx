@@ -28,7 +28,7 @@ const TableUI = () => {
   };
 
   const handleDeleteRow = useCallback((row) => {
-      if (!confirm(`Are you sure you want to delete ${row.getValue('firstName')}`)) return;
+      if (!confirm(`Tem certeza de que deseja excluir ${row.getValue('name')}`)) return;
       //send api delete request here, then refetch or update local table data for re-render
       tableData.splice(row.index, 1);
       setTableData([...tableData]);
@@ -66,7 +66,7 @@ const TableUI = () => {
         accessorKey: 'id',
         header: 'ID',
         enableColumnOrdering: false,
-        enableEditing: false, //disable editing on this column
+        enableEditing: false,
         enableSorting: false,
         size: 80,
       },
@@ -97,6 +97,7 @@ const TableUI = () => {
       {
         accessorKey: 'dtRegister',
         header: 'Cadastrado',
+        enableEditing: false,
         size: 80,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
@@ -106,6 +107,7 @@ const TableUI = () => {
       {
         accessorKey: 'dtUpdate',
         header: 'Alterado',
+        enableEditing: false,
         size: 80,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
@@ -136,7 +138,7 @@ const TableUI = () => {
         onEditingRowCancel={handleCancelRowEdits}
         renderRowActions={({ row, table }) => (
           <Box sx={{ display: 'flex', gap: '1rem' }}>
-            <Tooltip arrow placement="left" title="Edit">
+            <Tooltip arrow placement="left" title="Editar">
               <IconButton onClick={() => table.setEditingRow(row)}>
                 <Edit />
               </IconButton>
@@ -170,8 +172,7 @@ const TableUI = () => {
 
 //example of creating a mui dialog modal for creating new rows
 export const CreateNewAccountModal = ({ open, columns, onClose, onSubmit }) => {
-  const [values, setValues] = useState(() =>
-    columns.reduce((acc, column) => {
+  const [values, setValues] = useState(() => columns.reduce((acc, column) => {
       acc[column.accessorKey ?? ''] = '';
       return acc;
     }, {}),
@@ -185,7 +186,7 @@ export const CreateNewAccountModal = ({ open, columns, onClose, onSubmit }) => {
 
   return (
     <Dialog open={open}>
-      <DialogTitle textAlign="center">Create New Account</DialogTitle>
+      <DialogTitle textAlign="center">Criar novo usuário</DialogTitle>
       <DialogContent>
         <form onSubmit={(e) => e.preventDefault()}>
           <Stack
