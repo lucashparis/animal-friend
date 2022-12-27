@@ -20,6 +20,10 @@ const User = database.define('user', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    senha: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
 });
 
 module.exports = User;

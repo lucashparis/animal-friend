@@ -4,15 +4,18 @@ import { Box, Button, IconButton, Tooltip } from '@mui/material';
 import { Delete, Edit } from '@mui/icons-material';
 import { data } from './makeData';
 import { CreateNewUserModal } from '../createNewUserModal/CreateNewUserModal';
+import { createNewUserModalAction } from '../../store/actions/userActions';
 
 const TableUI = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [tableData, setTableData] = useState(() => data);
   const [validationErrors, setValidationErrors] = useState({});
 
-  const handleCreateNewRow = (values) => {
-    tableData.push(values);
-    setTableData([...tableData]);
+  const handleCreateNewUser = (values) => {
+    createNewUserModalAction(values)
+
+    // tableData.push(values);
+    // setTableData([...tableData]);
   };
 
   const handleSaveRowEdits = async ({ exitEditingMode, row, values }) => {
@@ -165,7 +168,7 @@ const TableUI = () => {
         columns={columns}
         open={createModalOpen}
         onClose={() => setCreateModalOpen(false)}
-        onSubmit={handleCreateNewRow}
+        onSubmit={handleCreateNewUser}
       />
     </>
   );
