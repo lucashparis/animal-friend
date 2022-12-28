@@ -1,6 +1,8 @@
-import { check } from 'express-validator';
+import { Router } from 'express';
+import { createUserController } from '../controllers/user/createUserController';
 
-module.exports = app => {
-  const { userController } = app.controllers;
-  app.route('/api/userRegister/').post(userController.userRegister)
-}
+const routes = Router();
+
+routes.post('/api/userRegister/', createUserController);
+
+export default routes;
