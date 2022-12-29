@@ -10,9 +10,10 @@ import database from './db';
 import User from './src/models/user';
 
 app.use(cors());
-app.use('/', userRoutes);
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(userRoutes);
 
 database.sync().then(() => {
     console.log('-- Database was created! --');
