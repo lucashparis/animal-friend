@@ -1,26 +1,14 @@
-export const myUsers = [
-  { id: 1, name: "Lucas", user: "OldDead", status: "Ativo", email: "lucashenriqueparis@gmail.com", dtRegister: "2022-12-23", dtUpdate: "2022-12-23" },
-  { id: 2, name: "Regis", user: "Kisper", status: "Ativo", email: "regis@gmail.com", dtRegister: "2022-12-10", dtUpdate: "2022-12-23"},
-  { id: 3, name: "Dan", user: "DanPalmeirense", status: "Inativo", email: "danilo@gmail.com", dtRegister: "2022-12-05", dtUpdate: "2022-12-23"},
-  { id: 4, name: "Rafa", user: "Rafinha", status: "Inativo", email: "rafa@gmail.com", dtRegister: "2022-12-23", dtUpdate: "2022-12-23"}
+const users = [
+  { id: 1, user: 'Snow', name: 'Jon', email: 'lucashenriqueparis@gmail.com', dtRegister: '25/02/2022', dtUpdate: '23/12/2022' },
+  { id: 2, user: 'Lannister', name: 'Cersei', email: 'lucashenriqueparis@gmail.com', dtRegister: '25/02/2022', dtUpdate: '23/12/2022' },
+  { id: 3, user: 'Lannister', name: 'Jaime', email: 'lucashenriqueparis@gmail.com', dtRegister: '25/02/2022', dtUpdate: '23/12/2022' },
+  { id: 4, user: 'Stark', name: 'Arya', email: 'lucashenriqueparis@gmail.com', dtRegister: '25/02/2022', dtUpdate: '23/12/2022' },
+  { id: 5, user: 'Targaryen', name: 'Daenerys', email: 'lucashenriqueparis@gmail.com', dtRegister: '25/02/2022', dtUpdate: '23/12/2022' },
+  { id: 6, user: 'Melisandre', name: null, email: 'lucashenriqueparis@gmail.com', dtRegister: '25/02/2022', dtUpdate: '23/12/2022' },
+  { id: 7, user: 'Clifford', name: 'Ferrara', email: 'lucashenriqueparis@gmail.com', dtRegister: '25/02/2022', dtUpdate: '23/12/2022' },
+  { id: 8, user: 'Frances', name: 'Rossini', email: 'lucashenriqueparis@gmail.com', dtRegister: '25/02/2022', dtUpdate: '23/12/2022' },
+  { id: 9, user: 'Roxie', name: 'Harvey', email: 'lucashenriqueparis@gmail.com', dtRegister: '25/02/2022', dtUpdate: '23/12/2022' },
 ];
 
-export const data = [
-  {
-    id: '9s41rp',
-    name: 'Kelvin',
-    user: 'Langosh',
-    email: 'Jerod14@hotmail.com',
-    dtRegister: '25/02/2022',
-    dtUpdate: '23/12/2022',
-  },
-  {
-    id: '9s41sp',
-    name: 'Lucas Paris',
-    user: 'OldDead',
-    email: 'lucashenriqueparis@gmail.com',
-    dtRegister: '25/02/2022',
-    dtUpdate: '23/12/2022',
-  }
-];
+export { users };
 
