@@ -1,8 +1,8 @@
-import { createNewUserModalService } from "../../services/userService";
+import { createNewUserService } from "../../services/userService";
 
-export const createNewUserModalAction = async (objUser) => {
+export const createNewUserAction = async (objUser) => {
     try {   
-        await createNewUserModalService(objUser);
+        await createNewUserService(objUser);
     } catch(error) {
         
     }

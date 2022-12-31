@@ -1,7 +1,6 @@
 import { RegistrationHeader } from '../../components/registrationHeader/RegistrationHeader';
 import Sidebar from '../../components/sidebar/Sidebar';
 import TableUI from '../../components/tableUI/TableUI';
-import '../../pages/Home/index.css';
 
 function User(props) {
     return (

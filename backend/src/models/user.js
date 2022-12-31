@@ -24,6 +24,10 @@ const User = database.define('user', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    status: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
 });
 
 module.exports = User;

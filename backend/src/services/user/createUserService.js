@@ -2,8 +2,6 @@ import database from '../../../db'
 import User from '../../models/user'
 
 const execute = async (objUser) => {
-  console.log("execute", objUser);
-  
   let transaction;
 
   try {
@@ -16,16 +14,16 @@ const execute = async (objUser) => {
       usuario: objUser.user,
       email: objUser.email,
       senha: objUser.password,
+      status: objUser.status,
     };
     
     const user = await User.create(modelUser);
     await transaction.commit();
     return user;
   } catch (error) {
-      // console.log(error);
       if (transaction) transaction.rollback();
       throw error;
-    }
+  }
 }
 
 export { execute };
