@@ -1,8 +1,11 @@
-import { FormControl, OutlinedInput, TextField, InputLabel, InputAdornment, IconButton, Input, Autocomplete, Button  } from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useState } from "react";
 
+import { FormControl, TextField, InputLabel, InputAdornment, IconButton, Input, Autocomplete, Button } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+
 import Sidebar from "../../../components/sidebar/Sidebar";
+import { MyAlert } from "../../../components/myAlert/MyAlert";
+
 import { createNewUserAction } from "../../../store/actions/userActions";
 
 function Register() {
@@ -15,6 +18,7 @@ function Register() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [status, setStatus] = useState(null);
+    const [error, setError] = useState({});
 
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -30,6 +34,9 @@ function Register() {
     };
 
     const createNewUser = async () => {
+        if (!name) {
+            setError({ message: 'Preencha os campos obrigatórios' });
+        }
         const objUser = {
             name: name,
             user: user,
@@ -37,6 +44,7 @@ function Register() {
             email: email,
             status: status,
         }
+        
         await createNewUserAction(objUser);
     }
 
@@ -47,6 +55,12 @@ function Register() {
                 <Sidebar />
 
                 <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
+
+                    { error && error.message && (
+                        <MyAlert title={'Error'} message={error.message} />
+                    )}
+
+
                     <div class='flex justify-between'>
                         <TextField id="name" label="Nome" variant="standard" onChange={(e) => setName(e.target.value)} />
                         <TextField id="user" label="Usuário" variant="standard" onChange={(e) => setUser(e.target.value)} />
@@ -107,7 +121,7 @@ function Register() {
                         >
                             Success
                         </Button>
-                    </div>
+                    </div>                               
                 </div>
             </div>
         </div>
