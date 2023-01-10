@@ -2,7 +2,7 @@ import '../../pages/Home/index.css';
 
 function MiniDashboardInfo(props) {
     return (
-        <div class="bg-black/60 to-white/5 rounded-lg">
+        <div class="bg-my-gray/60 to-white/5 rounded-lg">
             <div class="flex flex-row items-center">
                 <div class="text-3xl p-4">{props.icon}</div>
                 <div class="p-2">

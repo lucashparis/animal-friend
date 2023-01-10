@@ -5,7 +5,12 @@ module.exports = {
   ],
   important: true,
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'my-gray': '#939393',
+        'my-black': '#001E27',
+      },
+    },
   },
   plugins: [],
 }

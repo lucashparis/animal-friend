@@ -8,11 +8,11 @@ import Sidebar from '../../components/sidebar/Sidebar';
 
 function Home() {
     return (
-        <div class="antialiased bg-black w-full min-h-screen text-slate-300 relative py-4">
+        <div class="antialiased bg-my-gray w-full min-h-screen text-slate-300 relative py-4">
             <div class="grid grid-cols-12 mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl my-10 px-2">
                 <Sidebar />
                 
-                <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
+                <div id="content" class="bg-my-black col-span-9 rounded-lg p-6 shadow-[10px_10px_5px_-3px_rgba(0,0,0,0.36)]">
                     <div id="24h">
                         <h1 class="font-bold py-4 uppercase">Informações sobre os animais</h1>
                         <div id="stats" class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -50,11 +50,11 @@ function Home() {
                             />
                         </div>
                     </div>
-                    {/* <div id="last-users">
+                    <div id="last-users">
                         <h1 class="font-bold py-4 uppercase">Last 24h users</h1>
                         <div class="overflow-x-scroll">
                             <table class="w-full whitespace-nowrap">
-                                <thead class="bg-black/60">
+                                <thead class="bg-my-gray/60">
                                     <th class="text-left py-3 px-2 rounded-l-lg">Name</th>
                                     <th class="text-left py-3 px-2">Email</th>
                                     <th class="text-left py-3 px-2">Status</th>
@@ -192,7 +192,7 @@ function Home() {
                                 </tr>
                             </table>
                         </div>
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </div>
