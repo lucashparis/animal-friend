@@ -7,7 +7,6 @@ import userRoutes from './src/routes/userRoute'
 const app = express();
 
 import database from './db';
-import User from './src/models/user';
 
 app.use(cors());
 app.use(express.json());
