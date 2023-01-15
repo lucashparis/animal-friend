@@ -8,8 +8,10 @@ import { MyAlert } from "../../../components/myAlert/MyAlert";
 
 import { createNewUserAction } from "../../../store/actions/userActions";
 
-function Register() {
+import './index.css';
 
+function Register() {
+    const minimalCharacters = 3; 
     const statusOptions = ['Ativo', 'Inativo'];
 
     const [name, setName] = useState('');
@@ -39,72 +41,71 @@ function Register() {
     const handleMouseDownConfirmPassword = (event) => {
         event.preventDefault();
     };
-
     
     const validFieldName = () => {
         if (!name) {
             setError({ message: 'Preencha os campos obrigatórios' });
-            setFieldNameWithError({ 
-                message: 'Esse campo não pode ser vazio!'
-            });
+            setFieldNameWithError({ message: 'Esse campo não pode ser vazio!' });
+        } else if(name.length < minimalCharacters){
+            setError({ message: 'Preencha os campos obrigatórios' });
+            setFieldNameWithError({ message: `Minimo de ${minimalCharacters} caracteres` });
         }
     }
 
     const validFieldUser = () => {
-        const minimalCharacters = 3; 
-
         if (!user) {
             setError({ message: 'Preencha os campos obrigatórios' });
-            setFieldUserWithError({
-                message: 'Esse campo não pode ser vazio!'
-            });
+            setFieldUserWithError({ message: 'Esse campo não pode ser vazio!' });
         } else if(user.length < minimalCharacters){
             setError({ message: 'Preencha os campos obrigatórios' });
-            setFieldUserWithError({
-                message: `Minimo de ${minimalCharacters} caracteres`
-            });
+            setFieldUserWithError({ message: `Minimo de ${minimalCharacters} caracteres` });
         }
     }
     
     const validFieldEmail = () => {
         if (!email) {
             setError({ message: 'Preencha os campos obrigatórios' });
-            setFieldEmailWithError({
-                message: 'Esse campo não pode ser vazio!'
-            });
+            setFieldEmailWithError({ message: 'Esse campo não pode ser vazio!' });
+        } else if (email) {
+            const emailIsValid = verifyEmailIsValid(email);
+            if (!emailIsValid) {
+                setError({ message: 'Email inválido' });
+                setFieldEmailWithError({ message: 'Email inválido!' });
+            }
         }
     }
+    
+    const verifyEmailIsValid = (email) => {
+        const regex = /\S+@\S+\.\S+/;
+        const emailIsValid = regex.test(email);
+        return emailIsValid;
+    };
 
     const validFieldPassword = () => {
         if (!password) {
             setError({ message: 'Preencha os campos obrigatórios' });
-            setFieldPasswordWithError({
-                message: 'Esse campo não pode ser vazio!'
-            });
+            setFieldPasswordWithError({ message: 'Esse campo não pode ser vazio!' });
         }
     }
 
     const validFieldConfirmPassword = () => {
         if (!confirmPassword) {
             setError({ message: 'Preencha os campos obrigatórios' });
-            setFieldConfirmPasswordWithError({
-                message: 'Esse campo não pode ser vazio!'
-            });
+            setFieldConfirmPasswordWithError({ message: 'Esse campo não pode ser vazio!' });
+        } else if (confirmPassword !== password){
+            setError({ message: 'Senhas não conferem' });
+            setFieldConfirmPasswordWithError({ message: 'Senhas não conferem' });
         }
     }
     
     const validFieldStatus = () => {
         if (!status) {
             setError({ message: 'Preencha os campos obrigatórios' });
-            setFieldStatusdWithError({
-                message: 'Esse campo não pode ser vazio!'
-            });
+            setFieldStatusdWithError({ message: 'Esse campo não pode ser vazio!' });
         }
     }
 
     const createNewUser = async () => {
-
-        const minimumCharactersForUser = (user.length > 3) ? true : false;
 
         validFieldName();
         validFieldUser();
@@ -113,11 +114,6 @@ function Register() {
         validFieldConfirmPassword();
         validFieldStatus();
         
-
-        if (minimumCharactersForUser) {
-            setError({ message: 'Minimo de 4 caracteres para o campo usuário' });
-        }
-
         const objUser = {
             name: name,
             user: user,
@@ -141,20 +137,26 @@ function Register() {
                         <MyAlert color={'error'} message={error.message} />
                     )}
 
-
-                    <div class='flex justify-between'>
-                        <TextField id="name" label="Nome" variant="standard" required onChange={(e) => setName(e.target.value)} 
-                            error={fieldNameWithError.message.length > 0} helperText={fieldNameWithError.message ? fieldNameWithError.message : ''} />
-                        <TextField id="user" label="Usuário" variant="standard" required onChange={(e) => setUser(e.target.value)} 
-                            error={fieldUserWithError.message.length > 0} helperText={fieldUserWithError.message ? fieldUserWithError.message : ''} />
-                        <TextField id="email" label="Email" variant="standard" required onChange={(e) => setEmail(e.target.value)} 
-                            error={fieldEmailWithError.message.length > 0} helperText={fieldEmailWithError.message ? fieldEmailWithError.message : ''} />
+                    <div class='flex justify-between pb-2.5'>
+                        <TextField id="name" className="w-64" label="Nome" variant="standard" required onChange={(e) => setName(e.target.value)} 
+                            error={fieldNameWithError.message.length > 0} helperText={fieldNameWithError.message ? fieldNameWithError.message : ''} 
+                            InputProps={{ disableUnderline: true }}
+                        />
+                        <TextField id="user" className="w-64" label="Usuário" variant="standard" required onChange={(e) => setUser(e.target.value)} 
+                            error={fieldUserWithError.message.length > 0} helperText={fieldUserWithError.message ? fieldUserWithError.message : ''} 
+                            InputProps={{ disableUnderline: true }}
+                        />
+                        <TextField id="email" className="w-64" label="Email" variant="standard" required onChange={(e) => setEmail(e.target.value)} 
+                            error={fieldEmailWithError.message.length > 0} helperText={fieldEmailWithError.message ? fieldEmailWithError.message : ''} 
+                            InputProps={{ disableUnderline: true }}
+                        />
                     </div>
-                    <div class='flex justify-between'>
+                    <div class='flex justify-between pb-2.5'>
                         <FormControl variant="standard" error={fieldPasswordWithError.message.length > 0}>
                             <InputLabel htmlFor="password"> Senha </InputLabel>
                             <Input
                                 id="password"
+                                className="w-64"
                                 type={showPassword ? 'text' : 'password'}
                                 endAdornment={
                                     <InputAdornment position="end">
@@ -177,6 +179,7 @@ function Register() {
                             <InputLabel htmlFor="confirmPassword"> Confirmar Senha </InputLabel>
                             <Input
                                 id="confirmPassword"
+                                className="w-64"
                                 type={showConfirmPassword ? 'text' : 'password'}
                                 endAdornment={
                                     <InputAdornment position="end">
@@ -192,13 +195,14 @@ function Register() {
                                 required
                                 onChange={(e) => setConfirmPassword(e.target.value)}
                             />
-                            <FormHelperText id="my-helper-text">{fieldConfirmPasswordWithError.message}</FormHelperText>
+                            <FormHelperText id="my-helper-text" className="text-[#d32f2f]">{fieldConfirmPasswordWithError.message}</FormHelperText>
                         </FormControl>
 
                         <FormControl error={fieldStatusdWithError.message.length > 0}>
                             <Autocomplete
-                                options={statusOptions}
                                 id="status"
+                                className="w-64"
+                                options={statusOptions}
                                 autoSelect
                                 renderInput={(params) => (
                                     <TextField {...params} label="Status" variant="standard" />
@@ -209,10 +213,12 @@ function Register() {
                         </FormControl>
                     </div>
                     <div className="flex justify-end">
-                        <Button variant="contained" color="success"
-                            onClick={() => createNewUser() }
+                        <Button className="inline-block h-3/4 px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out" 
+                            variant="contained" 
+                            color="success" 
+                            onClick={() => createNewUser()}
                         >
-                            Success
+                            Salvar
                         </Button>
                     </div>                               
                 </div>
