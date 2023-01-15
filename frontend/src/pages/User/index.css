@@ -1,0 +1,31 @@
+.MuiDataGrid-cellContent,
+.MuiDataGrid-columnHeaderTitleContainerContent,
+.MuiToolbar-root,
+a{
+    color: #cbd5e1;
+}
+
+.MuiDataGrid-virtualScrollerContent,
+.MuiDataGrid-footerContainer,
+.css-yrdy0g-MuiDataGrid-columnHeaderRow{
+    background-color: rgb(0 30 39);
+}
+
+.MuiDataGrid-footerContainer{
+    border-top: 1px solid rgb(0 30 39) !important;
+}
+
+.MuiDataGrid-columnHeaders,
+.MuiDataGrid-virtualScroller,
+.MuiDataGrid-cell{
+    border-color: rgb(55 65 81 / 1) !important;
+}
+
+.MuiDataGrid-root{
+    border: none !important;
+}
+
+.MuiDataGrid-columnHeaders{
+    width: 100%;
+    background-color: #001e27;
+}

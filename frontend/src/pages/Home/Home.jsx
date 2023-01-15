@@ -13,13 +13,11 @@ function Home() {
                 <Sidebar />
                 
                 <div id="content" class="bg-my-black col-span-9 rounded-lg p-6 shadow-[10px_10px_5px_-3px_rgba(0,0,0,0.36)]">
-                    <div id="24h">
-                        <h1 class="font-bold py-4 uppercase">Informações sobre os animais</h1>
-                        <div id="stats" class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <MiniDashboard icon={<FontAwesomeIcon icon={faFileClipboard} />} title={'Para adoção'} data={845} />
-                            <MiniDashboard icon={<FontAwesomeIcon icon={faFileClipboard} />} title={'Para adoção'} data={845} />
-                            <MiniDashboard icon={<FontAwesomeIcon icon={faFileClipboard} />} title={'Para adoção'} data={845} />
-                        </div>
+                    <h1 class="font-bold py-4 uppercase">Informações sobre os animais</h1>
+                    <div id="stats" class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <MiniDashboard icon={<FontAwesomeIcon icon={faFileClipboard} />} title={'Para adoção'} data={845} />
+                        <MiniDashboard icon={<FontAwesomeIcon icon={faFileClipboard} />} title={'Para adoção'} data={845} />
+                        <MiniDashboard icon={<FontAwesomeIcon icon={faFileClipboard} />} title={'Para adoção'} data={845} />
                     </div>
                     <div id="last-incomes">
                         <h1 class="font-bold py-4 uppercase">Last 24h incomes</h1>

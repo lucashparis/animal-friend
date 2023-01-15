@@ -1,0 +1,11 @@
+input, label, button {
+    color: #cfd4db !important;
+}
+
+.MuiInput-root { 
+    border-bottom: 1px solid #cfd4db !important; 
+}
+
+.MuiLabel-root { 
+    outline: none;
+}
