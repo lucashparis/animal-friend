@@ -9,6 +9,16 @@ const execute = async (objUser) => {
         if (!objUser) return;
 
         transaction = await database.transaction();
+
+        const virifyUserAlreadyRegistered = async() => {
+            const userAlreadyRegistered = await User.findOne({ where: { usuario: objUser.user } });
+            return userAlreadyRegistered ? userAlreadyRegistered.dataValues : false;
+        }
+
+        const userAlreadyRegistered = await virifyUserAlreadyRegistered();
+        if (userAlreadyRegistered) {
+            return { messageError: `Usuário ${userAlreadyRegistered.usuario} já utilizado por ${userAlreadyRegistered.nome}`}
+        } 
        
         const saltRounds = 10;
         const hash = bcrypt.hashSync(objUser.password, saltRounds);

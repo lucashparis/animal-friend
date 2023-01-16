@@ -21,6 +21,7 @@ function Register() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [status, setStatus] = useState(null);
     const [error, setError] = useState({});
+    const [success, setSuccess] = useState({});
 
     const [fieldNameWithError, setFieldNameWithError] = useState({ message: '' });
     const [fieldUserWithError, setFieldUserWithError] = useState({ message: '' });
@@ -114,15 +115,27 @@ function Register() {
         validFieldConfirmPassword();
         validFieldStatus();
         
+        if(!name || !user || !email || !password || !status) return;
+        
         const objUser = {
-            name: name,
-            user: user,
-            email: email,
-            password: password,
-            status: status,
+            name,
+            user,
+            email,
+            password,
+            status,
         }
 
-        await createNewUserAction(objUser);
+        try {
+            const userRegistration = await createNewUserAction(objUser);
+            if (userRegistration && !userRegistration.messageError) {
+                setSuccess({ message: `Usuário ${userRegistration.nome} foi cadastrado!`})
+            }
+            if (userRegistration && userRegistration.messageError) {
+                setError({ message: userRegistration.messageError})
+            }
+        } catch (error) {
+            setError({ message: error });
+        }
     }
 
     return (
@@ -135,6 +148,9 @@ function Register() {
 
                     { error && error.message && (
                         <MyAlert color={'error'} message={error.message} />
+                    )}
+                    { success && success.message && (
+                        <MyAlert color={'success'} message={success.message} />
                     )}
 
                     <div class='flex justify-between pb-2.5'>
