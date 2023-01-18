@@ -5,7 +5,7 @@ import Donation from './pages/Donation/Donation';
 import Home from './pages/Home/Home';
 import Report from './pages/Report/Report';
 import { Register } from './pages/User/Register/Register';
-import User from './pages/User/User';
+import { User } from './pages/User/User';
 
 function App() {
   return (
