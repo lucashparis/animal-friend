@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FormControl, TextField, InputLabel, InputAdornment, IconButton, Input, Autocomplete, Button, FormHelperText } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
-import Sidebar from "../../../components/sidebar/Sidebar";
+import { Sidebar } from "../../../components/sidebar/Sidebar";
 import { MyAlert } from "../../../components/myAlert/MyAlert";
 
 import { createNewUserAction } from "../../../store/actions/userActions";

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileClipboard } from '@fortawesome/free-solid-svg-icons'
 import MiniDashboard from '../../components/miniDashboard/MiniDashboard';
 import MiniDashboardInfo from '../../components/miniDashboardInfo/MiniDashboardInfo';
-import Sidebar from '../../components/sidebar/Sidebar';
+import { Sidebar } from '../../components/sidebar/Sidebar';
 
 function Home() {
     return (

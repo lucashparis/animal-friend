@@ -32,4 +32,4 @@ function Sidebar(props) {
     );
 }
 
-export default Sidebar;
+export { Sidebar };
