@@ -6,7 +6,7 @@ import './index.css';
 
 import { getUsersAction } from '../../store/actions/userActions';
 
-import * as moment from 'moment';
+import moment from 'moment';
 
 function User(props) {
     const [rows, setRows] = useState([]);
@@ -17,7 +17,13 @@ function User(props) {
     
     const getUsers = async () => {
         const users = await getUsersAction();
-        setRows(users);
+        const result = users.map(user => {
+            return { ...user, 
+                createdAt: moment(user.createdAt).format('DD/MM/YYYY'),
+                updatedAt: moment(user.updatedAt).format('DD/MM/YYYY')
+            }
+        });
+        setRows(result ? result : []);
     }
 
     const renderActionsButton = () => {
@@ -44,7 +50,7 @@ function User(props) {
             headerName: 'Ações',
             description: 'actions.',
             sortable: false,
-            width: 160,
+            width: 60,
             renderCell : renderActionsButton,
         },
     ];
